@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>杜司棋</title>
+
+
+
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+*{
+  padding: 0;
+  margin: 0;
+}
+ul{
+  list-style: none;
+}
+.out{
+  margin: 50px 0 0 50px;
+  position: relative;
+}
+.out .kk li{ 
+  width:85px;
+  height:23px; 
+  color:#666;
+  font-size:12px;
+  text-align:center;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  display: inline-block;
+  margin-right: 5px;
+}
+#k1{
+  border-left: 1px solid #e5e5e5;
+}
+li#k1:after, li#k1:before {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #fff;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top:3px;
+  left: 85px;
+  content: ' ';
+}
+li#k1:before {
+  border-left-color: #e5e5e5;
+  top: 3px;
+  left: 86px;	
+}/*右边三角形*/
+#k1.change{
+  width: 83px;
+  background-color: #108EE9;
+  color: #F6F6F6;
+  border: 1px solid #108EE9;
+}
+li#k1.change:after, li#k1.change:before {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #108EE9;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top:3px;
+  left: 85px;
+  content: ' ';
+}
+li#k1.change:before {
+  border-left-color: #108EE9;
+  top: 3px;
+  left: 85px; 
+}/*改变颜色*/
+li#k2:after,li#k2:before{
+  border:12.5px solid transparent;
+  border-left:10px solid #fff;
+  width:100%;
+  height:0;
+  position: absolute;
+  top: 3px;
+  left: 180px;
+  content: ' ';
+}
+li#k2:before{
+  border-left-color: #e5e5e5;
+  left: 181px;	
+}/*右边三角形*/
+#k2.change{
+  width: 83px;
+  background-color: #108EE9;
+  color: #F6F6F6;
+  border: 1px solid #108EE9;
+}
+li#k2.change:after,li#k2.change:before{
+  border:12.5px solid transparent;
+  border-left:10px solid #108EE9;
+  width:0;
+  height:0;
+  position: absolute;
+  top: 3px;
+  left: 180px;
+  content: ' ';
+}
+li#k2.change:before{
+  border-left-color: #108EE9;
+  left: 180px;  
+}/*改变颜色*/
+div#a2:after,div#a2:before{
+  border:12.5px solid transparent;
+  border-left:10px solid #fff;
+  width:0;
+  height:0;
+  position: absolute;
+  top: 3px;
+  left: 95px;
+  content: ' ';
+}
+div#a2:before{
+  border-left-color: #e5e5e5;
+  left: 96px;	
+}/*左边三角形*/
+li#k3:after, li#k3:before {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #fff;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 3px;
+  left: 276px;
+  content: ' ';
+}
+li#k3:before {
+  border-left-color: #e5e5e5;
+  left: 277px;	
+}/*右边三角形*/
+#k3.change{
+  width: 83px;
+  background-color: #108EE9;
+  color: #F6F6F6;
+  border: 1px solid #108EE9;
+}
+li#k3.change:after, li#k3.change:before {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #108EE9;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 3px;
+  left: 276px;
+  content: ' ';
+}
+li#k3.change:before {
+  border-left-color: #108EE9;
+  left: 277px;  
+}
+div#a3:after,div#a3:before{
+  border:12.5px solid transparent;
+  border-left:10px solid #fff;
+  width:0;
+  height:0;
+  position: absolute;
+  top: 3px;
+  left: 190px;
+  content: ' ';
+}
+div#a3:before{
+  border-left-color: #e5e5e5;
+  left: 191px;	
+}/*左边三角形*/
+#k4{
+  width: 95px;
+  margin-left: 2px;
+	border-right: solid 1px #e5e5e5;
+}
+li#k4:before, li#k4:after {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #fff;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 3px;
+  left: 287px;	
+  content: ' ';
+}
+li#k4:before {
+  border-left-color: #e5e5e5;
+  left: 288px;	
+}/*左边三角形*/
+#k4.change{
+  background-color: #108EE9;
+  color: #F6F6F6;
+  border: 1px solid #108EE9;
+}
+li#k4.change:before, li#k4.change:after {
+  border: 12.5px solid transparent;
+  border-left: 10px solid #fff;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 3px;
+  left: 287px;  
+  content: ' ';
+}
+li#k4.change:before {
+  border-left-color: #108EE9;
+  left: 288px;  
+}/*改变颜色*/
+
+.zz{
+	color:#D0021B;
+	font-size:12px;
+	text-align:center;
+	width:95px;
+	height:23px;
+	border: 1px solid #D0021B;
+	font-size:12px;
+	margin:35px 0 0 290px;
+	float:left;
+}
+
+.background{
+  background-color: #D0021B;
+  color: #F6F6F6; 
+}/*改变已中止的颜色*/
+
+</style>
+</head>
+
+<body>
+<div class="out">
+	<ul class="kk">
+    
+		<li  id="k1"><div id="a1">草稿</div></li>
+		<li  id="k2"><div id="a2">待审核</div></li>
+		<li  id="k3"><div id="a3">待复核</div></li>
+		<li  id="k4"><div id="a4">已核准</div></li>
+	</ul>
+	<div id="stop" class="zz" id ="yy">已中止</div>
+</div>
+
+  <button id ="start" class ="btn btn-primary" >开始处理</button>
+  <button id ="end" class ="btn btn-primary" >终止处理</button>
+</body>
+
+<script type="text/javascript">
+
+
+
+ $(document).ready(function(){
+
+      var i=-1;
+
+      $("#start").click(function(){ //开始处理
+          move();
+          var index=$(this).index();
+          console.log(index)
+          $("#k li").eq(index);
+        })
+
+      $("#end").click(function(){  //终止处理
+          i = 4
+          $("#stop").addClass("background")
+      })
+      function move(){ //跳转到下一步
+        if(i<3){
+          i++;
+          $(".kk li").eq(i).addClass("change")
+        }else if(i==3){
+          alert('已完成')
+        }else{
+          alert('已经终止')
+
+        }
+        
+      }
+});
+
+
+</script>
+
+</body>
+</html>
